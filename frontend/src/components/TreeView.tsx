@@ -49,5 +49,5 @@ export default function TreeView() {
   }, [tree, search, colorColumn, setSelected, toggleCollapse, colorScale])
 
   const cols = tree ? Array.from(flattenMetadataColumns(tree)).filter((c) => c !== 'id') : []
-  return <div className='h-full w-full'><div className='p-2 text-sm'>Metadata color: <select className='border ml-2' value={colorColumn} onChange={(e) => useStore.getState().setColorColumn(e.target.value)}><option value=''>None</option>{cols.map((c) => <option key={c}>{c}</option>)}</select></div><svg ref={svgRef} className='w-full h-[calc(100%-40px)] bg-white border' /></div>
+  return <div className='h-full w-full'><div className='p-2 text-sm'>Metadata color: <select className='border rounded-lg ml-2 px-1 py-0.5' value={colorColumn} onChange={(e) => useStore.getState().setColorColumn(e.target.value)}><option value=''>None</option>{cols.map((c) => <option key={c}>{c}</option>)}</select></div><svg ref={svgRef} className='w-full h-[calc(100%-40px)] bg-white border rounded-b-xl' /></div>
 }

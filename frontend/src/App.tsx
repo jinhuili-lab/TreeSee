@@ -106,30 +106,30 @@ export default function App() {
   }
 
   return <div className='h-screen grid grid-rows-[48px_1fr_24px] bg-slate-100'>
-    <header className='flex items-center justify-between px-3 border-b bg-white'>
+    <header className='mx-2 mt-2 flex items-center justify-between px-4 py-2 border bg-white rounded-xl shadow-sm'>
       <div className='font-semibold'>Protein Tree Studio</div>
       <div ref={menuWrapRef} className='relative flex items-center gap-5 text-sm'>
         <div className='relative'>
           <button className='hover:text-blue-700' onClick={() => setOpenMenu((m) => m === 'file' ? null : 'file')}>文件</button>
-          {openMenu === 'file' && <div className='absolute z-20 mt-2 w-56 rounded border bg-white shadow'>
-            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100' onClick={saveSession}>保存</button>
-            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100' onClick={saveAs}>另存为…</button>
-            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100' onClick={exportSvg}>导出 SVG</button>
+          {openMenu === 'file' && <div className='absolute z-20 mt-2 w-56 rounded-xl border bg-white shadow-lg overflow-hidden'>
+            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100 transition-colors' onClick={saveSession}>保存</button>
+            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100 transition-colors' onClick={saveAs}>另存为…</button>
+            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100 transition-colors' onClick={exportSvg}>导出 SVG</button>
           </div>}
         </div>
         <div className='relative'>
           <button className='hover:text-blue-700' onClick={() => setOpenMenu((m) => m === 'edit' ? null : 'edit')}>编辑</button>
-          {openMenu === 'edit' && <div className='absolute z-20 mt-2 w-56 rounded border bg-white shadow'>
-            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100' onClick={undo}>撤销</button>
-            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100' onClick={redo}>重做</button>
+          {openMenu === 'edit' && <div className='absolute z-20 mt-2 w-56 rounded-xl border bg-white shadow-lg overflow-hidden'>
+            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100 transition-colors' onClick={undo}>撤销</button>
+            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100 transition-colors' onClick={redo}>重做</button>
             <div className='px-3 py-2 text-xs text-slate-500 border-t'>选择工作区</div>
-            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100' onClick={() => setWorkspace('analysis')}>Analysis Workspace</button>
-            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100' onClick={() => setWorkspace('publication')}>Publication Workspace</button>
+            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100 transition-colors' onClick={() => setWorkspace('analysis')}>Analysis Workspace</button>
+            <button className='block w-full text-left px-3 py-2 hover:bg-slate-100 transition-colors' onClick={() => setWorkspace('publication')}>Publication Workspace</button>
           </div>}
         </div>
         <div className='relative'>
           <button className='hover:text-blue-700' onClick={() => setOpenMenu((m) => m === 'about' ? null : 'about')}>关于</button>
-          {openMenu === 'about' && <div className='absolute right-0 z-20 mt-2 w-72 rounded border bg-white shadow p-3 space-y-2'>
+          {openMenu === 'about' && <div className='absolute right-0 z-20 mt-2 w-72 rounded-xl border bg-white shadow-lg p-3 space-y-2'>
             <div className='font-medium'>Protein Tree Studio</div>
             <div className='text-xs text-slate-600'>版本信息：{APP_VERSION}</div>
             <div className='text-xs text-slate-600'>帮助文档：README.md（项目根目录）</div>
@@ -138,21 +138,21 @@ export default function App() {
         </div>
       </div>
     </header>
-    <div className='grid grid-cols-[290px_1fr_320px]'>
-      <aside className='border-r p-3 space-y-3 bg-white'>
+    <div className='grid grid-cols-[290px_1fr_320px] gap-2 px-2 pb-2'>
+      <aside className='p-3 space-y-3 bg-white rounded-xl border shadow-sm'>
         <h2 className='font-semibold'>Data & Layers</h2>
         <div><label className='text-sm'>Upload Newick</label><input id='treeFileInput' type='file' onChange={uploadTree} /></div>
         <div><label className='text-sm'>Upload Metadata (match)</label><input type='file' onChange={uploadMatch} /></div>
-        <div><input className='border p-1 w-full' placeholder='Search leaf...' value={search} onChange={(e) => setSearch(e.target.value)} /></div>
-        <button className='border px-2 py-1 mr-2' onClick={exportSvg}>Export SVG</button>
+        <div><input className='border rounded-lg p-1.5 w-full' placeholder='Search leaf...' value={search} onChange={(e) => setSearch(e.target.value)} /></div>
+        <button className='border rounded-lg px-2 py-1 mr-2' onClick={exportSvg}>Export SVG</button>
         <p className='text-xs text-slate-500'>{msg}</p>
       </aside>
-      <main>{rawTree ? <TreeView /> : <div className='p-4'>No tree loaded</div>}</main>
-      <aside className='border-l p-3 bg-white'>
+      <main className='bg-white rounded-xl border shadow-sm overflow-hidden'>{rawTree ? <TreeView /> : <div className='p-4'>No tree loaded</div>}</main>
+      <aside className='p-3 bg-white rounded-xl border shadow-sm'>
         <h2 className='font-semibold'>Inspector</h2>
         {selected ? <pre className='text-xs whitespace-pre-wrap'>{JSON.stringify(selected, null, 2)}</pre> : <p className='text-sm text-slate-500'>Click a node.</p>}
       </aside>
     </div>
-    <footer className='border-t px-3 text-xs flex items-center bg-white text-slate-600'>Status: {msg || 'Ready'}</footer>
+    <footer className='mx-2 mb-2 rounded-xl border px-3 text-xs flex items-center bg-white text-slate-600 shadow-sm'>Status: {msg || 'Ready'}</footer>
   </div>
 }
