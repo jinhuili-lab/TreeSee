@@ -1,11 +1,20 @@
 from __future__ import annotations
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 
 from .models import MatchResponse, ParseMetadataResponse, ParseTreeResponse
 from .tree_utils import attach_metadata, collect_leaf_names, parse_metadata_text, parse_newick_text, tree_to_json
 
 app = FastAPI(title="Protein Tree Studio API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/health")
