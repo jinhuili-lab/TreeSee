@@ -84,3 +84,13 @@ pip install "git+https://github.com/encode/uvicorn.git@0.30.6"
 pip install -r requirements.txt
 ```
 This fallback is mainly for environments where PyPI is blocked but GitHub remains reachable.
+
+
+## Desktop client (planned / scaffolded)
+A Tauri desktop scaffold is included under `desktop/` to support future cross-platform packaging while reusing the web UI core.
+
+Planned next steps:
+- Native file open/save dialogs
+- Native application menu wiring (File/Edit/About)
+- Local export-to-path workflows
+- Gradual replacement of localhost HTTP coupling with native commands
