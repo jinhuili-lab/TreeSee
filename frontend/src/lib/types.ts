@@ -9,6 +9,8 @@ export type TreeNode = {
 }
 
 export type Workspace = 'analysis' | 'publication'
+export type LayoutMode = 'rectangular' | 'curved' | 'straight' | 'radial' | 'circle'
+export type BranchLengthMode = 'with_size' | 'topology_only'
 
 export type HistoryAction =
   | { type: 'set_search'; value: string }
@@ -16,4 +18,4 @@ export type HistoryAction =
   | { type: 'toggle_collapse'; nodeId: string }
   | { type: 'set_workspace'; value: Workspace }
 
-export type ColorScope = 'node' | 'clade'
+export type ColorScope = 'node' | 'clade' | 'branch'
