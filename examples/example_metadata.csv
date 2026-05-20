@@ -1,0 +1,5 @@
+id,family,domain_type,species,cluster,dali_zscore,esm_cluster,protein_length,plddt
+ProteinA,BECR,Toxin,Bacillus subtilis,C1,18.4,E1,235,91.2
+ProteinB,BECR,Toxin,Escherichia coli,C1,16.9,E1,241,88.5
+ProteinC,HNH,Nuclease,Pseudomonas aeruginosa,C2,9.7,E2,198,84.1
+ProteinD,Other,Unknown,Streptomyces sp.,C3,5.1,E3,300,76.3

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Protein Tree Studio",
+  "version": "0.1.0",
+  "identifier": "org.jinhuili.proteintreestudio",
+  "build": {
+    "beforeDevCommand": "cd ../frontend && npm run dev",
+    "beforeBuildCommand": "cd ../frontend && npm run build",
+    "frontendDist": "../frontend/dist",
+    "devUrl": "http://localhost:5173"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Protein Tree Studio",
+        "width": 1400,
+        "height": 900,
+        "resizable": true
+      }
+    ]
+  }
+}
