@@ -202,3 +202,13 @@ This project does **not** allow silent scientific data mutation:
 - always surface validation mismatches.
 
 See `AGENTS.md` for enforceable contributor rules.
+
+
+### Troubleshooting: `cargo metadata ... program not found`
+This means Rust/Cargo is not installed or not on PATH.
+
+Windows fix:
+1. Install Rust via https://rustup.rs/
+2. Restart terminal/PowerShell
+3. Verify with `cargo --version`
+4. Re-run `build_project.bat` or desktop build command

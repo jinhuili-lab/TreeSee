@@ -6,7 +6,14 @@ if not exist "bin\ProteinTreeStudio.exe" (
   echo First-time setup detected. Building desktop client...
   call "%~dp0build_project.bat"
   if errorlevel 1 (
-    echo Build failed. Please review output above.
+    echo.
+    echo Build failed.
+    echo Common causes:
+    echo   1) Rust/Cargo missing  (install via rustup)
+    echo   2) Node/npm missing
+    echo   3) Network restrictions when installing npm packages
+    echo.
+    echo See README Windows setup section for prerequisites.
     pause
     exit /b 1
   )

@@ -1,6 +1,20 @@
 @echo off
 setlocal enabledelayedexpansion
 
+where cargo >nul 2>nul
+if errorlevel 1 (
+  echo ERROR: Rust/Cargo not found.
+  echo Install Rust toolchain first: https://rustup.rs/
+  echo Then restart terminal and rerun this script.
+  exit /b 1
+)
+
+where npm >nul 2>nul
+if errorlevel 1 (
+  echo ERROR: npm not found. Install Node.js 20+ first.
+  exit /b 1
+)
+
 echo [1/4] Building frontend...
 cd /d %~dp0frontend || exit /b 1
 call npm install || exit /b 1

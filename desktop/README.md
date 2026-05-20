@@ -70,3 +70,13 @@ Future polish: convert `ClusterPro.bat` to `ClusterPro.exe` with utilities such 
 For production Windows releases, prefer GitHub Actions workflow `.github/workflows/windows-desktop-release.yml` to generate installer/exe artifacts centrally in CI.
 
 This avoids requiring Node/npm/Rust toolchains on end-user machines.
+
+
+### Troubleshooting: `cargo metadata ... program not found`
+This means Rust/Cargo is not installed or not on PATH.
+
+Windows fix:
+1. Install Rust via https://rustup.rs/
+2. Restart terminal/PowerShell
+3. Verify with `cargo --version`
+4. Re-run `build_project.bat` or desktop build command
